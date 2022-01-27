@@ -1,0 +1,64 @@
+
+.frame.day1 {
+    background: linear-gradient(45deg, #43389f, #4ec6ca);
+    color: #fff;
+	font-family: "Courier New", "Courier", Helvetica, sans-serif;
+}
+
+.day1 {
+  p {
+    font-weight: 700;
+    margin: 0;
+  }
+  .days {
+    font-size: 82px;
+    line-height: 55px;
+  }
+
+  .challenge {
+    font-size: 23px;
+    letter-spacing: 1px;
+  }
+
+  .hundred {
+    display: grid;
+    grid-template-columns: 20px 80px 90px;
+    grid-template-rows: auto;
+    margin-bottom: 10px;
+  }
+
+  .hundred .shadow {
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .one-line {
+    position: relative;
+    width: 25px;
+    height: 100px;
+    background: #fff;
+    border-radius: 3px;
+  }
+
+  .one-slant {
+    position: absolute;
+    top: 0;
+    left: -15px;
+    width: 20px;
+    height: 40px;
+    border-radius: 3px;
+    background: #fff;
+    transform: rotateZ(45deg);
+  }
+
+  .zero {
+    border-radius: 50%;
+    border: #fff solid 25px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .behind {
+    position: relative;
+    z-index: -1;
+  }
+}
