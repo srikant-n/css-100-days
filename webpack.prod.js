@@ -4,7 +4,7 @@ const path = require("path");
 
 module.exports = {
   mode: "production",
-  entry: "./src/",
+  entry: "./src/main.js",
   output: { filename: "[name].js", path: path.resolve(__dirname, "dist") },
   module: {
     rules: [
@@ -16,7 +16,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new HtmlWebpackPlugin({ template: "./src/index.html", favicon: "./src/favicon.ico" }),
     new MiniCssExtractPlugin({ filename: "[name].css" }),
   ],
 };
