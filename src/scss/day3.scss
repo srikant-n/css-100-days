@@ -1,0 +1,245 @@
+#day3 {
+  $bezier: cubic-bezier(0.2, 0, 0.4, 1);
+  $shadow-bezier: cubic-bezier(0.2, 0, 0.4, 1);
+  $duration: 4s;
+  $dur1Stop: 25%;
+  $dur2Start: 30%;
+  $dur2Stop: 65%;
+
+  // use only the available space inside the 400x400 frame
+  .frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: #fff;
+    color: #333;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+  }
+
+  .mask {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 200px solid #272c34;
+    background: transparent;
+  }
+
+  .sky {
+    width: 100%;
+    height: 100%;
+    background: rgb(125, 223, 252);
+  }
+
+  .ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 42%;
+    background: rgb(240, 222, 117);
+  }
+
+  .pyramid-left {
+    position: absolute;
+    left: 154px;
+    top: 131px;
+    width: 0;
+    height: 0;
+    border: 42px solid transparent;
+    border-bottom: 80px solid rgb(245, 245, 245);
+    transform: rotate(15deg);
+    animation: left-color $duration $bezier infinite;
+  }
+
+  .pyramid-right {
+    position: absolute;
+    right: 158px;
+    top: 145px;
+    width: 0;
+    height: 0;
+    border: 25px solid transparent;
+    border-bottom: 100px solid rgb(150, 150, 150);
+    transform: rotate(-25deg);
+    animation: right-color $duration $bezier infinite;
+  }
+
+  .sun {
+    position: absolute;
+    top: 215px;
+    left: 80px;
+    width: 35px;
+    height: 35px;
+    background-color: #ffef00;
+    border-radius: 50%;
+    transform-origin: 120px 0;
+    animation: sun-rotate $duration $bezier infinite;
+  }
+
+  .shadow {
+    border: 52px solid transparent;
+    border-top: 52px solid rgb(179, 170, 123);
+    transform: skewx(89deg);
+    transform-origin: top center;
+    animation: shadow-move $duration $bezier infinite;
+  }
+
+  .shadow-scale {
+    position: absolute;
+    left: 146px;
+    top: 232px;
+    transform: scaleY(1);
+    transform-origin: top center;
+    animation: shadow-scale $duration $bezier infinite;
+  }
+
+  .black-overlay {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(39, 44, 52, 1);
+    animation: overlay-anim $duration $bezier infinite;
+  }
+
+  @keyframes sun-rotate {
+    0% {
+      transform: rotate(10deg)
+    }
+
+    #{$dur1Stop},
+    #{$dur2Start} {
+      transform: rotate(70deg);
+    }
+
+    100% {
+      transform: rotate(200deg);
+    }
+  }
+
+  @keyframes shadow-move {
+    0% {
+      transform: skewx(-89deg);
+    }
+
+    #{$dur1Stop},
+    #{$dur2Start} {
+      transform: skewx(-120deg);
+    }
+
+    85% {
+      transform: skewx(-270deg);
+    }
+
+    100% {
+      transform: skewx(-270deg);
+    }
+  }
+
+  @keyframes shadow-scale {
+    0% {
+      transform: scaleY(1);
+    }
+
+    #{$dur1Stop},
+    #{$dur2Start} {
+      transform: scaleY(0.7);
+    }
+
+    50% {
+      transform: scaleY(0.2);
+    }
+
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes left-color {
+    0% {
+      border-bottom-color: rgb(200, 200, 200);
+    }
+
+    #{$dur1Stop},
+    #{$dur2Start} {
+      border-bottom-color: rgb(255, 255, 255);
+    }
+
+    40% {
+      border-bottom-color: rgb(255, 255, 255);
+    }
+
+    60% {
+      border-bottom-color: rgb(230, 230, 230);
+    }
+
+    70% {
+      border-bottom-color: rgb(220, 220, 220);
+    }
+
+    100% {
+      border-bottom-color: rgb(180, 180, 180);
+    }
+  }
+
+  @keyframes right-color {
+    0% {
+      border-bottom-color: rgb(150, 150, 150);
+    }
+
+    #{$dur1Stop},
+    #{$dur2Start} {
+      border-bottom-color: rgb(215, 215, 215);
+    }
+
+    40% {
+      border-bottom-color: rgb(230, 230, 230);
+    }
+
+    60% {
+      border-bottom-color: rgb(255, 255, 255);
+    }
+
+    70% {
+      border-bottom-color: white;
+    }
+
+    100% {
+      border-bottom-color: rgb(230, 230, 230);
+    }
+  }
+
+  @keyframes overlay-anim {
+    0% {
+      background-color: rgba(39, 44, 52, 1)
+    }
+
+    #{$dur1Stop},
+    #{$dur2Start} {
+      background-color: rgba(39, 44, 52, 0)
+    }
+
+    60% {
+      background-color: rgba(39, 44, 52, 0)
+    }
+
+    100% {
+      background-color: rgba(39, 44, 52, 1)
+    }
+  }
+}

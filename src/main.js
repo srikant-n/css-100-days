@@ -1,6 +1,7 @@
 import "./scss/main.scss";
 import "./scss/day1.scss";
 import "./scss/day2.scss";
+import "./scss/day3.scss";
 
 /**
  * Toggle class for day 2
